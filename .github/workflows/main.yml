@@ -12,6 +12,12 @@ jobs:
       with:
         node-version: 16
         cache: npm
+    - name: Run Checkov Scan
+      uses: bridgecrewio/checkov-action@v12
+      with:
+        directory: "."  
+        quiet: false    
+        soft_fail: true
     - name: gitleaks
       uses: gitleaks/gitleaks-action@v2
       env:
