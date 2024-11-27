@@ -12,6 +12,10 @@ jobs:
       with:
         node-version: 16
         cache: npm
+    - name: gitleaks
+      uses: gitleaks/gitleaks-action@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
     - name: Run Semgrep Scan
       uses: returntocorp/semgrep-action@v1
       with:
